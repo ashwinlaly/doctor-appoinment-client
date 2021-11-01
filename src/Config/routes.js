@@ -3,24 +3,24 @@ import { lazy } from 'react';
 const routes = [
     {
         path: "/",
-        component : "",
-        exact: true
-    }, 
-    {
-        path: "/signin",
-        component : "",
+        component : lazy(() => import('../Pages/Signin/Signin')),
         exact: true
     },
     {
-        path: "/signup",
-        component : "",
+        path: "/login",
+        component : lazy(() => import('../Pages/Signin/Signin')),
         exact: true
     },
+    // {
+    //     path: "/dashboard",
+    //     component : lazy(() => import('../Pages/Dashboard/Dashboard')),
+    //     exact: true
+    // },
     {
-        path: "/dashboard",
-        component : "",
-        exact: true
-    }   
+        path: "*",
+        component: lazy(() => import("../Pages/Dashboard/Dashboard")),
+        exact: false,
+    },
 ];
 
-export const renderRoutes = routes;
+export default routes;

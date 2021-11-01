@@ -1,12 +1,27 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import reportWebVitals from './reportWebVitals';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Store from './Redex/store';
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+const theme = createTheme();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={Store}>
+      <ThemeProvider theme={theme}>
+        <Suspense fallback={
+            <div>Loading...</div>
+          }>
+          <App />
+        </Suspense>
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

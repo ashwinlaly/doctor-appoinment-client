@@ -1,16 +1,31 @@
-import LinearProgress from '@mui/material/LinearProgress';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import SignIn from './Pages/Signin/Signin';
+import React, {Fragment, useEffect} from 'react';
+import {connect} from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+// import LinearProgress from '@mui/material/LinearProgress';
 
-const theme = createTheme();
+import Routes from './Routes/index';
+import {history} from './Routes/history';
 
-function App() {
+const App = ({token, loading}) => {
+  useEffect(() => {
+    if(!token) {
+      history.push("/");
+    }
+  }, [token]);
   return (
-    <ThemeProvider theme={theme}>
-      <LinearProgress />
-        <SignIn/>
-    </ThemeProvider>
+    <Fragment>
+      {/* {loading && <LinearProgress />} */}
+      <Routes/>
+      <ToastContainer />
+    </Fragment>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    token: state.authData.token,
+    loading: state.authData.loading,
+  };
+};
+
+export default connect(mapStateToProps)(App);

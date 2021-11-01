@@ -1,4 +1,4 @@
-import * as actionType from './doctor-type-actions';
+import * as actionType from './doctorType-types';
 
 const INITIAL_STATE = {
     doctorTypeData: []
