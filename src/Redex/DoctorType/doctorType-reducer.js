@@ -1,13 +1,13 @@
 import * as actionType from './doctorType-types';
 
 const INITIAL_STATE = {
-    doctorTypeData: []
+    doctorTypes: []
 };
 
 const doctorTypeReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case actionType.GET_DOCTOR_TYPE:
-            return {...state, doctorTypeData: action.payload};
+            return {...state, doctorTypes: action.payload};
         default:
             return state;
     }

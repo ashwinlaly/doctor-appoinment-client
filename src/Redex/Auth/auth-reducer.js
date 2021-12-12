@@ -14,6 +14,16 @@ const authReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 error: action.payload.error
             };
+        case actionTypes.SIGNUP_SUCESS:
+            return {
+                ...state,
+                error: []
+            };
+        case actionTypes.SIGNUP_ERROR:
+            return {
+                ...state,
+                error: action.payload.error
+            };
         case actionTypes.LOGOUT:
             localStorage.removeItem("token");
             return {

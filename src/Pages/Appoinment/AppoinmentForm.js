@@ -6,8 +6,8 @@ import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
-import Modal from '../Modal/Modal';
-import Button from '../Button/Button';
+import Modal from '../../Component/Modal/Modal';
+import Button from '../../Component/Button/Button';
 import DatePicker from '../../Component/MobileDatePicker/DatePicker';
 
 import SLOTS from '../../Config/slot';

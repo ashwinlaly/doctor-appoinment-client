@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react';
 import { Switch, Router, Route } from 'react-router-dom';
 
-import {history} from './history';
-import routes from '../Config/routes';
+import { history } from './history';
+import { routes } from '../Config/routes';
 
 const Routes = () => {
     return (

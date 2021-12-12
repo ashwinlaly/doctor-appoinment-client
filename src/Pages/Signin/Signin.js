@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -54,6 +55,7 @@ const SignIn = ({token, login, error}) => {
               <TextBox id="email" name="email" label="User Email" type="email" required={true} onChange={(e) => setEmail(e.target.value)}/>
               <TextBox id="password" name="password" type="password" label="Password" required={true} onChange={(e) => setPassword(e.target.value)}/>
               <Button label="Sign In" type="submit" onClick={handleSubmit}/>
+              <Link component="button" onClick={() => { history.push("/signup") }}> Create account </Link>
               {error?.map((item, index) => <li key={index}>{item.msg}</li>)}
             </Box>
         </Container>

@@ -4,7 +4,7 @@ import MenuItem  from '@mui/material/MenuItem';
 import InputLabel  from '@mui/material/InputLabel';
 import FormControl  from '@mui/material/FormControl';
 
-const Select = ({id, label, defaltValue, options, handleChange}) => {
+const Select = ({id, label, defaltValue, options, idName, valueName, handleChange}) => {
     return (
         <FormControl sx={{ m: 1, width: 400 }}>
             <InputLabel id="demo-simple-select-autowidth-label">{label}</InputLabel>
@@ -15,7 +15,7 @@ const Select = ({id, label, defaltValue, options, handleChange}) => {
                     value={defaltValue}
                     onChange={handleChange}
                 >
-                {options.map((item, index) => <MenuItem key={index} value={item.id}>{item.value}</MenuItem>)}
+                {options?.map((item, index) => <MenuItem key={index} value={item[idName]}>{item[valueName]}</MenuItem>)}
             </InputSelect>
         </FormControl>
     );

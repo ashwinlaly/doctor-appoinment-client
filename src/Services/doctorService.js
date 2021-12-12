@@ -4,8 +4,12 @@ export const doctorLogin = async (data) => {
     return await API.post(`/doctor/signin`, data);
 }
 
-export const getDoctorsAppoinmentByDate = async(date) => {
-    return await API.post(`/doctor/appoinments`, {date});
+export const doctorSignup = async (data) => {
+    return await API.post(`/doctor/signup`, data);
+}
+
+export const getDoctorsSlot = async () => {
+    return await API.get(`/doctor/slots`);
 }
 
 export const createAppoinmentByDate = async(data) => {
@@ -14,4 +18,8 @@ export const createAppoinmentByDate = async(data) => {
 
 export const updateAppoinmentStatus = async(data) => {
     return await API.post(`/doctor/appoinment/status`, data);
+}
+
+export const getDoctorsAppoinmentByDate = async(date) => {
+    return await API.post(`/doctor/appoinments`, {date});
 }

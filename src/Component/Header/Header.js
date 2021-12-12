@@ -6,8 +6,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
-const drawerWidth = 240;
+import { history } from '../../Routes/history';
 
+const drawerWidth = 240;
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
   })(({ theme, open }) => ({
@@ -27,13 +28,10 @@ const AppBar = styled(MuiAppBar, {
   }));
 
   const Header = ({open, toggleDrawer, setOpen}) => {
+    let pathName = history.location.pathname.substr(1);
     return (
       <AppBar position="absolute" open={open}>
-          <Toolbar
-            sx={{
-              pr: '24px', // keep right padding when drawer closed
-            }}
-          >
+          <Toolbar sx={{ pr: '24px' }} >
             <IconButton
               edge="start"
               color="inherit"
@@ -53,11 +51,10 @@ const AppBar = styled(MuiAppBar, {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Dashboard
+              {pathName.substr(0,1).toUpperCase() + pathName.substr(1)}
             </Typography>
-            
           </Toolbar>
-</AppBar>
+      </AppBar>
     )
   };
 

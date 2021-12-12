@@ -1,5 +1,6 @@
 import * as doctorTypes from './doctor-types';
 import {
+    getDoctorsSlot,
     createAppoinmentByDate,
     updateAppoinmentStatus,
     getDoctorsAppoinmentByDate,
@@ -48,11 +49,9 @@ export const getAppoinmentByDate = (date) => {
             getDoctorsAppoinmentByDate(date).then(data => {
                 return onSuccess(data);
             }).catch(error => {
-                console.log(error);
                 return onSuccess(null);
             });
         } catch(error) {
-            console.log(error);
             return onSuccess(null);
         }
     }
@@ -76,8 +75,23 @@ export const updateAppoinmentByID = (data) => {
             }).catch(error => {
                 onError(error);
             });
-        } catch(error) {
-            console.log(error);
-        }
+        } catch(error) {}
     }
 }
+
+export const getDoctorSlot = () => {
+    return (dispatch) => {
+        function onSuccess(data) {
+            dispatch({
+                type: doctorTypes.GET_DOCTOR_SLOT,
+                payload: data
+            });
+        }
+        function onError() {}
+        getDoctorsSlot().then(response => {
+            return onSuccess(response.data);
+        }).catch(error => {
+            return onError(error);
+        });
+    }
+};

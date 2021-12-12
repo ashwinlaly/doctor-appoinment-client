@@ -3,10 +3,10 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import { Switch, Router, Route } from 'react-router-dom';
 
-import {history} from '../../Routes/history';
+import { history } from '../../Routes/history';
 import Header from '../../Component/Header/Header';
 import Sidebar from '../../Component/Sidebar/Sidebar';
-import Appoinment from '../../Component/Appoinment/Appoinment';
+import { privateRoutesList } from '../../Config/routes';
 
 const DashboardContent = () => {
   const [open, setOpen] = React.useState(true);
@@ -35,13 +35,17 @@ const DashboardContent = () => {
           
           <Router history={history}>
             <Switch>
-                <Route 
-                  path={"/appoinments"}
-                  exact={true}
-                  component={Appoinment} />
+               {privateRoutesList.map((route, index) => {
+                 return (
+                  <Route 
+                    key={index}
+                    exact={true}
+                    path={route.to}
+                    component={route.component} />
+                 );
+               })}
             </Switch>
           </Router>
-
 
         </Box>
       </Box>

@@ -17,9 +17,9 @@ import CommentIcon from '@mui/icons-material/Comment';
 import TableContainer from '@mui/material/TableContainer';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
-import Modal from '../Modal/Modal';
-import {default as CustomButton} from '../Button/Button';
-import AnimationSkeleton from '../AnimationSkeleton/Skeleton';
+import Modal from '../../Component/Modal/Modal';
+import {default as CustomButton} from '../../Component/Button/Button';
+import AnimationSkeleton from '../../Component/AnimationSkeleton/Skeleton';
 import { updateAppoinmentByID } from '../../Redex/Doctor/doctor-actions';
 
 const TableHeader = () => {
@@ -93,8 +93,8 @@ function AppoinmentsListing({appoinments, updateAppointment}) {
   
   return (
     <Fragment>
-      <TableContainer sx={{ mt:5 }} component={Paper}>
-        <Table sx={{ minWidth: 650, mt:1 }} aria-label="simple table">
+      <TableContainer sx={{ mt:1 }} component={Paper}>
+        <Table sx={{ minWidth: 600, mt:0 }} aria-label="simple table">
           <TableHeader />
           { appoinments?.data?.length ?
               (<TableBody>
